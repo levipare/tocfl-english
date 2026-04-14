@@ -1,4 +1,5 @@
 import csv
+import os
 import re
 
 from tqdm import tqdm
@@ -13,7 +14,8 @@ with open("data/tofcl.csv") as f:
 with open("data/tatoeba.tsv", encoding="utf-8-sig") as f:
     sentences = list(csv.reader(f, delimiter="\t"))
 
-with open("dist/tofcl-definitions.csv", mode="w") as f:
+os.makedirs("dist", exist_ok=True)
+with open("dist/tofcl-english.csv", mode="w") as f:
     writer = csv.writer(f)
     missing = {
         "definition": 0,
